@@ -14,6 +14,7 @@ public class BaseTest {
     public static WebDriver driver;
     public static WebDriverWait wait;
     public RegistrationPage registrationPage;
+    public Resources resources;
 
 
     @BeforeClass
@@ -21,6 +22,7 @@ public class BaseTest {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         registrationPage = new RegistrationPage();
+        resources = new Resources("C:\\Users\\rokvaa\\Desktop/credentials.txt");
     }
 
     @AfterClass
@@ -30,5 +32,5 @@ public class BaseTest {
 
     //----------------------------------------------------------------
 
-    public String url = "https://etherscan.io/register";
+
 }
