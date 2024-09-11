@@ -28,4 +28,8 @@ public class Resources {
     public String getUrl() {
         return properties.getProperty("url");
     }
+
+    public String getEmail() {
+        return properties.getProperty("email");
+    }
 }

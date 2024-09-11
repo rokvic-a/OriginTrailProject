@@ -22,7 +22,7 @@ public class BaseTest {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         registrationPage = new RegistrationPage();
-        resources = new Resources("C:\\Users\\rokvaa\\Desktop/credentials.txt");
+        resources = new Resources("C:\\Users\\rokvaa\\Desktop\\credentials.txt");
     }
 
     @AfterClass
