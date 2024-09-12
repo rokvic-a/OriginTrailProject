@@ -1,15 +1,19 @@
 package Pages;
 
 import Base.BaseTest;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class RegistrationPage extends BaseTest {
 
     public RegistrationPage() {
         PageFactory.initElements(driver, this);
     }
+
+    JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 
     @FindBy(id = "ContentPlaceHolder1_txtUserName")
     public WebElement usernameField;
@@ -50,6 +54,8 @@ public class RegistrationPage extends BaseTest {
         confirmPasswordField.sendKeys(confirmPassword);
         termsAndConditionsCheckBox.click();
         newsletterCheckBox.click();
-        registerButton.click();
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", registerButton);
+        wait.until(ExpectedConditions.elementToBeClickable(registerButton));
+        jsExecutor.executeScript("arguments[0].click();", registerButton);
     }
 }
