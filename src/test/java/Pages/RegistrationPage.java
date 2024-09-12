@@ -39,9 +39,56 @@ public class RegistrationPage extends BaseTest {
     @FindBy(id = "ContentPlaceHolder1_btnRegister")
     public WebElement registerButton;
 
+    @FindBy(id = "btnCookie")
+    public WebElement cookieButton;
+
+    @FindBy(id = "ContentPlaceHolder1_txtUserName-error")
+    private WebElement usernameError;
+
+    @FindBy(id = "ContentPlaceHolder1_txtEmail-error")
+    private WebElement emailError;
+
+    @FindBy(id = "ContentPlaceHolder1_txtConfirmEmail-error")
+    private WebElement confirmEmailError;
+
+    @FindBy(id = "ContentPlaceHolder1_txtPassword-error")
+    private WebElement passwordError;
+
+    @FindBy(id = "ContentPlaceHolder1_txtPassword2-error")
+    private WebElement confirmPasswordError;
+
+    @FindBy(id = "ctl00$ContentPlaceHolder1$MyCheckBox-error")
+    private WebElement termsCheckBoxError;
+
     //-------------------------------------------------------
 
-    public void signUp(String username, String email, String confirmEmail, String password, String confirmPassword) {
+
+    public String getUsernameError() {
+        return usernameError.getText();
+    }
+
+    public String getEmailError() {
+        return emailError.getText();
+    }
+
+    public String getConfirmEmailError() {
+        return confirmEmailError.getText();
+    }
+
+    public String getPasswordError() {
+        return passwordError.getText();
+    }
+
+    public String getConfirmPasswordError() {
+        return confirmPasswordError.getText();
+    }
+
+    public String getTermsCheckBoxError() {
+        return termsCheckBoxError.getText();
+    }
+
+
+    public void signUp(String username, String email, String confirmEmail, String password, String confirmPassword, boolean shouldClickTerms, boolean shouldClickNewsletter) {
         usernameField.clear();
         usernameField.sendKeys(username);
         emailAddressField.clear();
@@ -52,10 +99,19 @@ public class RegistrationPage extends BaseTest {
         passwordField.sendKeys(password);
         confirmPasswordField.clear();
         confirmPasswordField.sendKeys(confirmPassword);
-        termsAndConditionsCheckBox.click();
-        newsletterCheckBox.click();
+        if (shouldClickTerms) {
+            termsAndConditionsCheckBox.click();
+        }
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", registerButton);
         wait.until(ExpectedConditions.elementToBeClickable(registerButton));
         jsExecutor.executeScript("arguments[0].click();", registerButton);
+        if(shouldClickNewsletter) {
+            newsletterCheckBox.click();
+        }
     }
+
+
+
+
+
 }
