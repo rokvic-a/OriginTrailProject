@@ -26,7 +26,7 @@ public class BaseTest {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         registrationPage = new RegistrationPage();
-        resources = new Resources("C:\\Users\\rokvaa\\Desktop\\credentials.txt");
+        resources = new Resources("C:\\Users\\rokvaa\\Desktop\\test_data.txt");
         username = resources.getUsername();
         password = resources.getPassword();
         email = resources.getEmail();
