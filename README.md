@@ -58,5 +58,20 @@ This limitation affects the completion of the registration test, but it demonstr
 3. **Jenkins** runs the tests automatically after each code change.
 4. **Allure** generates detailed reports after test execution.
 
+### Test Data File: `test_data_example.txt`
+
+The `test_data_example.txt` file contains mockup data used for registration tests. It provides an example format for input data required to run the automated tests, including:
+
+- **Username**
+- **Password**
+- **Email**
+- **URL of the website**
+
+#### How to Use:
+1. Replace the mockup data in the `test_data_example.txt` file with actual test data, ensuring the format remains the same.
+2. The file will be read by the test framework to retrieve the username, password, email, and URL needed for registration testing.
+
+Ensure that sensitive information like actual credentials is not committed to the repository.
+
 
 
